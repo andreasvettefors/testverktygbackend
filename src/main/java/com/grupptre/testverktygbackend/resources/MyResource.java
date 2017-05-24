@@ -1,4 +1,4 @@
-package com.grupptre.testverktygbackend;
+package com.grupptre.testverktygbackend.resources;
 
 import com.grupptre.testverktygbackend.models.Test;
 import com.grupptre.testverktygbackend.models.User;
