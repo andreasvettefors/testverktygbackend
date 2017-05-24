@@ -5,9 +5,12 @@
  */
 package com.grupptre.testverktygbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -29,20 +32,22 @@ public class UserHasTest implements Serializable {
 
     @Column(name = "grade")
     private String grade;
-    
+
     @Column(name = "isDone")
     private Short isDone;
-    
+
     @JoinColumn(name = "course_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Course courseId;
-    
+
     @JoinColumn(name = "test_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
+    @JsonManagedReference
     private Test testId;
-    
+
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
+    @JsonManagedReference
     private User userId;
 
     public UserHasTest() {
@@ -92,11 +97,11 @@ public class UserHasTest implements Serializable {
         this.testId = testId;
     }
 
-    public User getUserId() {
+    /*public User getUserId() {
         return userId;
-    }
+    }*/
 
     public void setUserId(User userId) {
         this.userId = userId;
-    }   
+    }
 }

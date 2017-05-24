@@ -5,6 +5,8 @@
  */
 package com.grupptre.testverktygbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -34,7 +36,6 @@ public class Question implements Serializable {
 
     @Id
     @GeneratedValue()
-
     @Column(name = "id")
     private Integer id;
  
@@ -48,9 +49,11 @@ public class Question implements Serializable {
     private List<Answer> answerList;
     
     @JoinColumn(name = "test_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @JsonManagedReference
+    @ManyToOne
     private Test testId;
     
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "questionId")
     private List<Studentanswer> studentanswerList;
 
@@ -85,7 +88,7 @@ public class Question implements Serializable {
         this.imgUrl = imgUrl;
     }
 
-    @XmlTransient
+   
     public List<Answer> getAnswerList() {
         return answerList;
     }
@@ -94,9 +97,9 @@ public class Question implements Serializable {
         this.answerList = answerList;
     }
 
-    public Test getTestId() {
+    /*public Test getTestId() {
         return testId;
-    }
+    }*/
 
     public void setTestId(Test testId) {
         this.testId = testId;

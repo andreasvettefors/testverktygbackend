@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -41,7 +42,7 @@ public class Course implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL) 
     private List<User> userList;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "courseId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "courseId",fetch = FetchType.EAGER)
     private List<UserHasTest> userHasTestList;
 
     public Course() {

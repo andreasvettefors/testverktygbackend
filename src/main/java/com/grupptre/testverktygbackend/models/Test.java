@@ -5,6 +5,7 @@
  */
 package com.grupptre.testverktygbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -41,9 +42,11 @@ public class Test implements Serializable {
     @Column(name = "seeResult")
     private Short seeResult;
     
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "testId")
     private List<UserHasTest> userHasTestList;
     
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "testId")
     private List<Question> questionList;
 
@@ -103,7 +106,7 @@ public class Test implements Serializable {
         this.userHasTestList = userHasTestList;
     }
 
-    @XmlTransient
+    
     public List<Question> getQuestionList() {
         return questionList;
     }

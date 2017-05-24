@@ -25,7 +25,7 @@ public class Main {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         
-        Course c1 = new Course();
+        /*Course c1 = new Course();
         c1.setName("Matte");
            
         User user = new User();
@@ -38,7 +38,12 @@ public class Main {
         
         c1.setUserList(userList);
       
-        session.save(c1);
+        session.save(c1);*/
+        
+        List<User> list = session.createCriteria(User.class).list();
+        for(User u: list){
+            System.out.println(u.getUserHasTestList().get(0).getTestId().getQuestionList().get(0).getQuestion());
+        }
         session.getTransaction().commit();
     }
     
