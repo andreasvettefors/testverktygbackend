@@ -19,7 +19,7 @@ public class ResTest {
     public List<User> getIt() {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
-            List<User> list = session.createCriteria(User.class).list();
+        List<User> list = session.createCriteria(User.class).list();
         /*List<Test> list = session.createCriteria(Test.class).list();
         for(Test t:list){
             for(Question q: t.getQuestionList()){
