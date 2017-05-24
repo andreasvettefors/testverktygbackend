@@ -31,4 +31,5 @@ public class ResTest {
         session.getTransaction().commit();
         return list;
     }
+    
 }
