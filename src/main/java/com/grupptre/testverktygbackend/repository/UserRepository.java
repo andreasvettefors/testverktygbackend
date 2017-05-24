@@ -14,7 +14,7 @@ import org.hibernate.Session;
  *
  * @author Andreas Vettefors (contact@vettefors.se)
  */
-public class ResTest {
+public class UserRepository {
 
     public List<User> getIt() {
         Session session = HibernateUtil.getSession();
@@ -27,7 +27,7 @@ public class ResTest {
                 }
             }
         }*/
-
+         
         session.getTransaction().commit();
         return list;
     }

@@ -2,7 +2,7 @@ package com.grupptre.testverktygbackend.resources;
 
 import com.grupptre.testverktygbackend.models.Test;
 import com.grupptre.testverktygbackend.models.User;
-import com.grupptre.testverktygbackend.repository.ResTest;
+import com.grupptre.testverktygbackend.repository.UserRepository;
 import com.grupptre.testverktygbackend.util.HibernateUtil;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -29,7 +29,7 @@ public class MyResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> getIt() {
-        ResTest r = new ResTest();
+        UserRepository r = new UserRepository();
         return r.getIt();
     }
 }

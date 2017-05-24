@@ -9,6 +9,6 @@ package com.grupptre.testverktygbackend.services;
  *
  * @author hampus
  */
-public class klsad {
+public class TestService {
     
 }
