@@ -27,7 +27,7 @@ public class MyResource {
      * @return String that will be returned as a text/plain response.
      */
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+//    @Produces(MediaType.APPLICATION_JSON)
     public List<User> getIt() {
         UserRepository r = new UserRepository();
         return r.getIt();

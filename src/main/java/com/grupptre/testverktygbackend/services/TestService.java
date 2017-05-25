@@ -5,10 +5,20 @@
  */
 package com.grupptre.testverktygbackend.services;
 
+import com.grupptre.testverktygbackend.models.Test;
+import com.grupptre.testverktygbackend.models.UserHasTest;
+import com.grupptre.testverktygbackend.repository.TestRepository;
+import java.util.List;
+
 /**
  *
  * @author hampus
  */
 public class TestService {
+        
+    TestRepository tr = new TestRepository();
     
+  public List<UserHasTest>getTestsFromCourse(){
+      return tr.getTestsFromCourse();
+    }
 }
