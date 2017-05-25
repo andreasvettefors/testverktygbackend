@@ -8,6 +8,7 @@ package com.grupptre.testverktygbackend.repository;
 import com.grupptre.testverktygbackend.models.User;
 import com.grupptre.testverktygbackend.util.HibernateUtil;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
@@ -15,7 +16,8 @@ import org.hibernate.Session;
  * @author Andreas Vettefors (contact@vettefors.se)
  */
 public class ResTest {
-
+    
+    
     public List<User> getIt() {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
@@ -31,4 +33,5 @@ public class ResTest {
         session.getTransaction().commit();
         return list;
     }
+    
 }
