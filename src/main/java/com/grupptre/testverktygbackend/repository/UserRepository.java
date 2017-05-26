@@ -12,11 +12,11 @@ import org.hibernate.Session;
 
 /**
  *
- * @author Andreas Vettefors (contact@vettefors.se)
+ * @author ramonachantaf
  */
-public class ResTest {
-
-    public List<User> getIt() {
+public class UserRepository {
+    
+       public List<User> getAllUsers() {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         List<User> list = session.createCriteria(User.class).list();
@@ -27,7 +27,7 @@ public class ResTest {
                 }
             }
         }*/
-
+         
         session.getTransaction().commit();
         return list;
     }
