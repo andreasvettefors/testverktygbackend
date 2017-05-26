@@ -27,12 +27,6 @@ import javax.ws.rs.core.MediaType;
 public class CourseResource {
     
     
-
-  
- 
-  
-    
-    
      CourseService cr = new CourseService();
      
      @GET

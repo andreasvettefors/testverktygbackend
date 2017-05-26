@@ -14,11 +14,19 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import org.hibernate.Session;
 
-/**
- *
- * @author hampus
- */
+
+
+
 public class TestRepository {
+      public Test addTest(Test test){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    session.save(test);
     
+   
+    session.getTransaction().commit();
+    
+    return test;
+    }
    
 }
