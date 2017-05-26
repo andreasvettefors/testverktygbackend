@@ -6,8 +6,7 @@
 package com.grupptre.testverktygbackend.services;
 
 import com.grupptre.testverktygbackend.models.Test;
-import com.grupptre.testverktygbackend.models.UserHasTest;
-import com.grupptre.testverktygbackend.repository.TestRepository;
+import com.grupptre.testverktygbackend.repository.CourseRepository;
 import java.util.List;
 
 /**
@@ -16,9 +15,6 @@ import java.util.List;
  */
 public class TestService {
         
-    TestRepository tr = new TestRepository();
-    
-  public List<UserHasTest>getTestsFromCourse(){
-      return tr.getTestsFromCourse();
-    }
+ 
+  
 }

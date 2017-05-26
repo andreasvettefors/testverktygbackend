@@ -5,12 +5,15 @@
  */
 package com.grupptre.testverktygbackend.resources;
 
+import com.grupptre.testverktygbackend.models.Test;
 import com.grupptre.testverktygbackend.models.User;
 import com.grupptre.testverktygbackend.repository.CourseRepository;
+import com.grupptre.testverktygbackend.services.CourseService;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -24,18 +27,24 @@ import javax.ws.rs.core.MediaType;
 public class CourseResource {
     
     
-    
+
+  
  
   
     
     
-    
-    
-    
-    
-    
-    @Path("/{courseId}/tests")
-    public TestResource test(){
-        return new TestResource();
+     CourseService cr = new CourseService();
+     
+     @GET
+     @Path("/{courseId}/tests")
+     public List<Test> getTestsFromCourse(@PathParam("courseId") int id){
+     
+       return cr.getTestsFromCourse(id);
     }
+    
+    
+    
+    
+    
+   
 }

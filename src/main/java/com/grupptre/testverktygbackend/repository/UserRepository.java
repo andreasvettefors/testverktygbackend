@@ -12,11 +12,11 @@ import org.hibernate.Session;
 
 /**
  *
- * @author Andreas Vettefors (contact@vettefors.se)
+ * @author ramonachantaf
  */
 public class UserRepository {
-
-    public List<User> getIt() {
+    
+       public List<User> getAllUsers() {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         List<User> list = session.createCriteria(User.class).list();
@@ -31,5 +31,4 @@ public class UserRepository {
         session.getTransaction().commit();
         return list;
     }
-    
 }

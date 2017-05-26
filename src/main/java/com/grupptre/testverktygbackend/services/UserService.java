@@ -5,10 +5,19 @@
  */
 package com.grupptre.testverktygbackend.services;
 
+import com.grupptre.testverktygbackend.models.User;
+import com.grupptre.testverktygbackend.repository.UserRepository;
+import java.util.List;
+
 /**
  *
  * @author hampus
  */
 public class UserService {
     
+    UserRepository ur = new UserRepository();
+    
+    public List<User> getAllUsers(){
+        return ur.getAllUsers();
+    }
 }

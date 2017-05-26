@@ -20,13 +20,5 @@ import org.hibernate.Session;
  */
 public class TestRepository {
     
-     public List<UserHasTest> getTestsFromCourse() {
-        Session session = HibernateUtil.getSession();
-        List<UserHasTest> tests = session.createCriteria(UserHasTest.class).list();
-        
-            
-        session.getTransaction().commit();
-        return tests;
-    }
-     
+   
 }
