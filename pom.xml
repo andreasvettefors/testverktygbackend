@@ -49,7 +49,13 @@
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-moxy</artifactId>
         </dependency>
-    
+        
+        <!-- https://mvnrepository.com/artifact/jaxen/jaxen -->
+<dependency>
+    <groupId>jaxen</groupId>
+    <artifactId>jaxen</artifactId>
+    <version>1.1.6</version>
+</dependency>
     
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
         <dependency>
@@ -96,6 +102,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    
     <properties>
         <jersey.version>2.26-b03</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
