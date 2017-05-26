@@ -13,7 +13,9 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -25,13 +27,13 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserResource {
     
-    UserService r = new UserService();
+    UserService us = new UserService();
          
     @GET
 //    @Produces(MediaType.APPLICATION_JSON)
     public List<User> getAllUsers() {
 
-        return r.getAllUsers();
+        return us.getAllUsers();
     }
 
     @POST
@@ -39,5 +41,16 @@ public class UserResource {
     public User login(User user) {
         LoginService ls = new LoginService();
         return ls.login(user);
+    }
+    
+    @POST
+    @Path("/studentanswers")
+    public void saveStudentAnswer(@QueryParam("studentId") int studentId,
+                                    @QueryParam("questionId") int questionId,
+                                    @QueryParam("answerId") int answerId){
+        System.out.println("studId: " + studentId);
+        System.out.println("questionId: " + questionId);
+        System.out.println("answerId: " + answerId);
+        us.saveStudentAnswer(studentId,questionId,answerId);
     }
 }

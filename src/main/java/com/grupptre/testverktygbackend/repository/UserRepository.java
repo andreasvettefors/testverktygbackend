@@ -8,6 +8,7 @@ package com.grupptre.testverktygbackend.repository;
 import com.grupptre.testverktygbackend.models.User;
 import com.grupptre.testverktygbackend.util.HibernateUtil;
 import java.util.List;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 /**
@@ -20,15 +21,20 @@ public class UserRepository {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         List<User> list = session.createCriteria(User.class).list();
-        /*List<Test> list = session.createCriteria(Test.class).list();
-        for(Test t:list){
-            for(Question q: t.getQuestionList()){
-                for(Answer a:q.getAnswerList()){                    
-                }
-            }
-        }*/
-         
         session.getTransaction().commit();
         return list;
     }
+       
+       public void saveStudentAnswer(int userId,int questionId,int answerId){
+           Session session = HibernateUtil.getSession();
+           session.beginTransaction();
+           SQLQuery q = session.createSQLQuery(""
+                   + "INSERT INTO g3testverktyg.studentanswer (user_id, question_id, answer_id) "
+                   + "VALUES (:uid, :qid, :aid)");
+           q.setParameter("uid", userId);
+           q.setParameter("qid", questionId);   
+           q.setParameter("aid", answerId);
+           q.executeUpdate();
+           session.getTransaction().commit();
+       }
 }

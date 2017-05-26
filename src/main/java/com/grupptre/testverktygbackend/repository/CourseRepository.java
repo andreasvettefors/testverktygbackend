@@ -5,8 +5,8 @@
  */
 package com.grupptre.testverktygbackend.repository;
 
+import com.grupptre.testverktygbackend.models.Course;
 import com.grupptre.testverktygbackend.models.Test;
-import com.grupptre.testverktygbackend.models.User;
 import com.grupptre.testverktygbackend.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.SQLQuery;
@@ -17,6 +17,14 @@ import org.hibernate.Session;
  * @author hampus
  */
 public class CourseRepository {
+    
+    public List<Course> getCourses(){
+       Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        List<Course> list = session.createCriteria(Course.class).list();
+        session.getTransaction().commit();
+        return list;
+    }
     
     // hämtar alla test från en viss kurs
    public List<Test> getTestsFromCourse(int id) {

@@ -20,4 +20,8 @@ public class UserService {
     public List<User> getAllUsers(){
         return ur.getAllUsers();
     }
+    
+    public void saveStudentAnswer(int userId,int questionId,int answerId){
+        ur.saveStudentAnswer(userId,questionId,answerId);
+    }
 }
