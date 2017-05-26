@@ -5,10 +5,9 @@
  */
 package com.grupptre.testverktygbackend.resources;
 
-/**
- *
- * @author hampus
- */
+
+
+
 public class CourseResource {
     
 }
