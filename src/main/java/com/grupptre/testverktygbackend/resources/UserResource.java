@@ -5,7 +5,6 @@
  */
 package com.grupptre.testverktygbackend.resources;
 
-import com.grupptre.testverktygbackend.models.Studentanswer;
 import com.grupptre.testverktygbackend.models.User;
 import com.grupptre.testverktygbackend.services.LoginService;
 import com.grupptre.testverktygbackend.services.UserService;
@@ -13,7 +12,6 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
