@@ -29,15 +29,15 @@ public class Studentanswer implements Serializable {
     private Integer id;
     
     @JoinColumn(name = "answer_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Answer answerId;
     
     @JoinColumn(name = "question_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Question questionId;
     
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private User userId;
 
     public Studentanswer() {

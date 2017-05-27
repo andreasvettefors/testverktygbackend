@@ -5,6 +5,7 @@
  */
 package com.grupptre.testverktygbackend.services;
 
+import com.grupptre.testverktygbackend.models.Studentanswer;
 import com.grupptre.testverktygbackend.models.User;
 import com.grupptre.testverktygbackend.repository.UserRepository;
 import java.util.List;
@@ -24,4 +25,5 @@ public class UserService {
     public void saveStudentAnswer(int userId,int questionId,int answerId){
         ur.saveStudentAnswer(userId,questionId,answerId);
     }
+    
 }

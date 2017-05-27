@@ -5,6 +5,7 @@
  */
 package com.grupptre.testverktygbackend.repository;
 
+import com.grupptre.testverktygbackend.models.Studentanswer;
 import com.grupptre.testverktygbackend.models.User;
 import com.grupptre.testverktygbackend.util.HibernateUtil;
 import java.util.List;
@@ -16,25 +17,29 @@ import org.hibernate.Session;
  * @author ramonachantaf
  */
 public class UserRepository {
-    
-       public List<User> getAllUsers() {
+
+    public List<User> getAllUsers() {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         List<User> list = session.createCriteria(User.class).list();
         session.getTransaction().commit();
         return list;
     }
-       
-       public void saveStudentAnswer(int userId,int questionId,int answerId){
-           Session session = HibernateUtil.getSession();
-           session.beginTransaction();
-           SQLQuery q = session.createSQLQuery(""
-                   + "INSERT INTO g3testverktyg.studentanswer (user_id, question_id, answer_id) "
-                   + "VALUES (:uid, :qid, :aid)");
-           q.setParameter("uid", userId);
-           q.setParameter("qid", questionId);   
-           q.setParameter("aid", answerId);
-           q.executeUpdate();
-           session.getTransaction().commit();
-       }
+
+    public void saveStudentAnswer(int userId, int questionId, int answerId) {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+
+        SQLQuery q = session.createSQLQuery(""
+                + "INSERT INTO g3testverktyg.studentanswer (user_id, question_id, answer_id) "
+                + "VALUES (:uid, :qid, :aid);");
+        
+        q.setParameter("uid", userId);
+        q.setParameter("qid", questionId);
+        q.setParameter("aid", answerId);
+        
+        q.executeUpdate();
+        session.getTransaction().commit();
+
+    }
 }
