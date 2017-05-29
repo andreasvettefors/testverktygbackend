@@ -28,6 +28,15 @@ public class UserRepository {
         session.getTransaction().commit();
         return list;
     }
+    
+    public User getUser(int id) {
+    
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        User user = (User) session.get(User.class, id);
+        session.getTransaction().commit();
+        return user;
+    }
 
     public List<UserHasTest> getUserTests(int userId) {
         Session session = HibernateUtil.getSession();

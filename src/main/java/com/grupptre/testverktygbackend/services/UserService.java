@@ -26,6 +26,9 @@ public class UserService {
     public List<UserHasTest> getUserTests(int userId){
         return ur.getUserTests(userId);
     }
+    public User getUser(int id){
+        return ur.getUser(id);
+    }
     
     public void saveStudentAnswer(int userId,int questionId,int answerId){
         ur.saveStudentAnswer(userId,questionId,answerId);

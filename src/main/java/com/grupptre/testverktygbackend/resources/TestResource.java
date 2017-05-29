@@ -5,8 +5,9 @@
  */
 package com.grupptre.testverktygbackend.resources;
 
-import com.grupptre.testverktygbackend.models.Test;
 import com.grupptre.testverktygbackend.services.TestService;
+import com.grupptre.testverktygbackend.models.Testresult
+import com.grupptre.testverktygbackend.models.Test
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -31,6 +32,13 @@ public class TestResource {
     public Test getTest(@PathParam("testId") int id) {
 
         return ts.getTest(id);
+    }
+
+     @GET
+     @Path("/{testId}/testresult")
+     public List <Testresult> getResultFromTest(@PathParam("studentId") int userId,@PathParam("testId") int id){
+     
+       return ts.getResultFromTest(userId, id);
     }
 
 }
