@@ -40,4 +40,10 @@ public class UserResource {
         LoginService ls = new LoginService();
         return ls.login(user);
     }
+    
+    
+    @Path("/students/{studentId}/tests")
+    public TestResource test(){
+        return new TestResource();
+    }
 }
