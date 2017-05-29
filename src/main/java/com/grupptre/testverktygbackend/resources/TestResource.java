@@ -6,8 +6,8 @@
 package com.grupptre.testverktygbackend.resources;
 
 import com.grupptre.testverktygbackend.services.TestService;
-import com.grupptre.testverktygbackend.models.Testresult
-import com.grupptre.testverktygbackend.models.Test
+import com.grupptre.testverktygbackend.models.Testresult;
+import com.grupptre.testverktygbackend.models.Test;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;

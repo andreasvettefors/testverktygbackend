@@ -6,11 +6,11 @@
 package com.grupptre.testverktygbackend.repository;
 
 import com.grupptre.testverktygbackend.models.Testresult;
-import com.grupptre.testverktygbackend.models.Test
+import com.grupptre.testverktygbackend.models.Test;
 import com.grupptre.testverktygbackend.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.SQLQuery;
-import org.hibernate.Query
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
