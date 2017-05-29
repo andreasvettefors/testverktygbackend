@@ -13,12 +13,17 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-/**
- *
- * @author hampus
- */
+
+
+
 public class TestRepository {
-    
+      public Test addTest(Test test){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    session.save(test);
+    session.getTransaction().commit();
+    return test;
+      }
 
         public Test getTest(int testId) {
             Session session = HibernateUtil.getSession();
