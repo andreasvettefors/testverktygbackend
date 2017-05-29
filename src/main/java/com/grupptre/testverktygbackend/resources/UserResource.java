@@ -13,6 +13,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -47,6 +48,13 @@ public class UserResource {
     public TestResource test(){
         return new TestResource();
     }
+    @Path("/{id}")
+    @GET
+    public User getUse(@PathParam("id") int id){
+       
+        return us.getUser(id);
+    }
+    
     @POST
     @Path("/studentanswers")
     public void saveStudentAnswer(@QueryParam("studentId") int studentId,

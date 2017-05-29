@@ -22,6 +22,10 @@ public class UserService {
         return ur.getAllUsers();
     }
     
+    public User getUser(int id){
+        return ur.getUser(id);
+    }
+    
     public void saveStudentAnswer(int userId,int questionId,int answerId){
         ur.saveStudentAnswer(userId,questionId,answerId);
     }
