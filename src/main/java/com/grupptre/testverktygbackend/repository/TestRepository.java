@@ -6,11 +6,12 @@
 package com.grupptre.testverktygbackend.repository;
 
 import com.grupptre.testverktygbackend.models.Testresult;
+import com.grupptre.testverktygbackend.models.Test
 import com.grupptre.testverktygbackend.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.SQLQuery;
+import org.hibernate.Query
 import org.hibernate.Session;
-
 
 /**
  *
@@ -18,6 +19,15 @@ import org.hibernate.Session;
  */
 public class TestRepository {
     
+
+        public Test getTest(int testId) {
+            Session session = HibernateUtil.getSession();
+            Query query = session.createQuery("from Test where id = :id");
+            query.setInteger("id",testId);
+            Test testToReturn = (Test) query.uniqueResult();
+            return testToReturn;
+    }
+   
    public List<Testresult> getResultFromTest(int studentId, int testId ) {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
@@ -42,4 +52,5 @@ public class TestRepository {
 
   
     }
+
 }
