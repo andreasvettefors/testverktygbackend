@@ -16,8 +16,16 @@ import java.util.List;
  * @author hampus
  */
 public class TestService {
-        
-   TestRepository tr = new TestRepository();
+
+    TestRepository tr = new TestRepository();
+  
+    public Test addTest(Test test){
+        return tr.addTest(test);
+    }
+
+    public Test getTest(int testId) {
+        return tr.getTest(testId);
+    }
     
    public List <Testresult> getResultFromTest(int userId, int testId){
       return tr.getResultFromTest(userId, testId);

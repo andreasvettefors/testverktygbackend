@@ -24,9 +24,9 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class CourseResource {
-
-    CourseService cr = new CourseService();
-
+    
+     CourseService cr = new CourseService();
+    
     @GET
     public List<Course> getCourses() {
         return cr.getCourses();
