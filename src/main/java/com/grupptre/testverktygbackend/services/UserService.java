@@ -7,6 +7,7 @@ package com.grupptre.testverktygbackend.services;
 
 import com.grupptre.testverktygbackend.models.Studentanswer;
 import com.grupptre.testverktygbackend.models.User;
+import com.grupptre.testverktygbackend.models.UserHasTest;
 import com.grupptre.testverktygbackend.repository.UserRepository;
 import java.util.List;
 
@@ -20,6 +21,10 @@ public class UserService {
     
     public List<User> getAllUsers(){
         return ur.getAllUsers();
+    }
+    
+    public List<UserHasTest> getUserTests(int userId){
+        return ur.getUserTests(userId);
     }
     
     public void saveStudentAnswer(int userId,int questionId,int answerId){
