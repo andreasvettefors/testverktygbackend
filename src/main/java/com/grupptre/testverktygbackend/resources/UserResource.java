@@ -43,7 +43,6 @@ public class UserResource {
         return ls.login(user);
     }
     
-    
     @Path("/students/{studentId}/tests")
     public TestResource test(){
         return new TestResource();
