@@ -20,22 +20,27 @@ import javax.validation.constraints.NotNull;
 @Table(name = "testresult")
 public class Testresult implements Serializable {
 
-    @NotNull
+    
     @Column(name = "user_id")
     @Id
+    @NotNull
     private int userId;
  
-    @NotNull
     @Column(name = "test_id")
+    @NotNull
+    @Id
     private int testId;
 
     @Column(name = "question")
+    @Id
     private String question;
 
     @Column(name = "answer")
+    @Id
     private String answer;
-    
+   
     @Column(name = "isCorrect")
+    @Id
     private Short isCorrect;
 
     public Testresult() {

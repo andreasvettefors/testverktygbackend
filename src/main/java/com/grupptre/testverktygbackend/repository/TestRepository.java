@@ -18,19 +18,26 @@ import org.hibernate.Session;
  */
 public class TestRepository {
     
-   public List <Testresult> getResultFromTest(int userId, int testId ) {
+   public List<Testresult> getResultFromTest(int studentId, int testId ) {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
          SQLQuery q = session.createSQLQuery("SELECT user_id,test_id,question,answer,isCorrect\n" +
-                                              "FROM testresult WHERE user_id = :userId AND test_id = :testId" );
-        q.addEntity(Testresult.class);
-        q.setParameter("userId", userId);
+                                           "FROM testresult WHERE user_id = :studentId AND test_id = :testId" );
+        q.setParameter("studentId", studentId);
         q.setParameter("testId", testId);
-        List <Testresult> result = q.list();
-        System.out.println(result.get(0).getQuestion());
+        q.addEntity(Testresult.class);
+       
+        List<Testresult> result = q.list();
+        
+        for(Testresult t : result){
+            System.out.println(t.getQuestion());
+        }
+        
+        //Testresult t = (Testresult) session.get(Testresult.class, 1);
+        //List<Testresult> result = session.createCriteria(Testresult.class).list();
+        //System.out.println(result.get(0).getQuestion());
         session.getTransaction().commit();
        
-        
         return result;
 
   

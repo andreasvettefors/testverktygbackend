@@ -31,7 +31,7 @@ public class TestResource {
      
      @GET
      @Path("/{testId}/testresult")
-     public List <Testresult> getResultFromTest(@PathParam("userId") int userId,@PathParam("testId") int id){
+     public List <Testresult> getResultFromTest(@PathParam("studentId") int userId,@PathParam("testId") int id){
      
        return ts.getResultFromTest(userId, id);
     }
