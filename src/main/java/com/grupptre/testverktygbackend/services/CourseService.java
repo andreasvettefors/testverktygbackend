@@ -5,6 +5,7 @@
  */
 package com.grupptre.testverktygbackend.services;
 
+import com.grupptre.testverktygbackend.models.Course;
 import com.grupptre.testverktygbackend.models.Test;
 import com.grupptre.testverktygbackend.repository.CourseRepository;
 import java.util.List;
@@ -14,10 +15,14 @@ import java.util.List;
  * @author hampus
  */
 public class CourseService {
-    
-      CourseRepository cr = new CourseRepository();
-    
-   public List<Test>getTestsFromCourse(int id){
-      return cr.getTestsFromCourse(id);
+
+    CourseRepository cr = new CourseRepository();
+
+    public List<Course> getCourses() {
+        return cr.getCourses();
+    }
+
+    public List<Test> getTestsFromCourse(int id) {
+        return cr.getTestsFromCourse(id);
     }
 }

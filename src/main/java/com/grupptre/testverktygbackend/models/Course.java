@@ -42,7 +42,7 @@ public class Course implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL) 
     private List<User> userList;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "courseId",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "courseId",fetch = FetchType.LAZY)
     private List<UserHasTest> userHasTestList;
 
     public Course() {

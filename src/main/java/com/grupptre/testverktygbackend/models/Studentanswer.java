@@ -6,18 +6,13 @@
 package com.grupptre.testverktygbackend.models;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -34,15 +29,15 @@ public class Studentanswer implements Serializable {
     private Integer id;
     
     @JoinColumn(name = "answer_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Answer answerId;
     
     @JoinColumn(name = "question_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Question questionId;
     
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private User userId;
 
     public Studentanswer() {

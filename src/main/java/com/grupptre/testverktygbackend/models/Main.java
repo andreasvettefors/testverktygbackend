@@ -6,11 +6,8 @@
 package com.grupptre.testverktygbackend.models;
 
 import com.grupptre.testverktygbackend.util.HibernateUtil;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
-import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
-import sun.misc.CRC16;
 
 /**
  *
