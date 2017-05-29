@@ -42,6 +42,11 @@ public class UserResource {
         return ls.login(user);
     }
     
+    
+    @Path("/students/{studentId}/tests")
+    public TestResource test(){
+        return new TestResource();
+    }
     @POST
     @Path("/studentanswers")
     public void saveStudentAnswer(@QueryParam("studentId") int studentId,

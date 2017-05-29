@@ -5,7 +5,15 @@
  */
 package com.grupptre.testverktygbackend.resources;
 
+
+import com.grupptre.testverktygbackend.models.Testresult;
+import com.grupptre.testverktygbackend.services.TestService;
+import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -19,6 +27,14 @@ import javax.ws.rs.core.MediaType;
 public class TestResource {
     
    
+     TestService ts = new TestService();
+     
+     @GET
+     @Path("/{testId}/testresult")
+     public List <Testresult> getResultFromTest(@PathParam("userId") int userId,@PathParam("testId") int id){
+     
+       return ts.getResultFromTest(userId, id);
+    }
         
      
        
