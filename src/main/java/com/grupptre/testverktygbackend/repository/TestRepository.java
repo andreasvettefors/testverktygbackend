@@ -5,6 +5,8 @@
  */
 package com.grupptre.testverktygbackend.repository;
 
+import com.grupptre.testverktygbackend.models.Answer;
+import com.grupptre.testverktygbackend.models.Question;
 import com.grupptre.testverktygbackend.models.Testresult;
 import com.grupptre.testverktygbackend.models.Test;
 import com.grupptre.testverktygbackend.util.HibernateUtil;
@@ -29,6 +31,26 @@ public class TestRepository {
         query.setInteger("id", testId);
         Test testToReturn = (Test) query.uniqueResult();
         return testToReturn;
+    }
+    
+    public Question addQuestion(int testId,Question question){
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        Test dbTest = (Test) session.get(Test.class, testId);
+        question.setTestId(dbTest);
+        session.save(question);
+        session.getTransaction().commit();
+        return question;
+    }
+    
+    public Answer addAnswer(int questionId,Answer answer){
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        Question dbQuestion = (Question) session.get(Question.class, questionId);
+        answer.setQuestionId(dbQuestion);
+        session.save(answer);
+        session.getTransaction().commit();
+        return answer;
     }
 
     public List<Testresult> getResultFromTest(int studentId, int testId) {

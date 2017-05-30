@@ -5,14 +5,10 @@
  */
 package com.grupptre.testverktygbackend.resources;
 
-import com.grupptre.testverktygbackend.services.TestService;
-import com.grupptre.testverktygbackend.models.Testresult;
+import com.grupptre.testverktygbackend.models.Answer;
+import com.grupptre.testverktygbackend.models.Question;
 import com.grupptre.testverktygbackend.models.Test;
-import com.grupptre.testverktygbackend.repository.CourseRepository;
-import com.grupptre.testverktygbackend.repository.TestRepository;
-import com.grupptre.testverktygbackend.repository.UserRepository;
 import com.grupptre.testverktygbackend.services.TestService;
-import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -36,6 +32,18 @@ public class TestResource {
     //@Produces(MediaType.APPLICATION_JSON)
     public Test addTest(Test test) {
         return ts.addTest(test);
+    }
+
+    @POST
+    @Path("/{testId}/questions")
+    public Question addQuestion(@PathParam("testId") int testId, Question question) {
+        return ts.addQuestion(testId, question);
+    }
+
+    @POST
+    @Path("/{testId}/questions/{questionId}")
+    public Answer addAnswer(@PathParam("questionId") int questionId, Answer answer) {
+        return ts.addAnswer(questionId, answer);
     }
 
     @GET
