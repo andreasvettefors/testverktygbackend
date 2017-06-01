@@ -71,7 +71,7 @@ public class CourseRepository {
         System.out.println(userId + "" + testId + "" + courseId);
         SQLQuery q = session.createSQLQuery("INSERT INTO g3testverktyg.user_has_test \n"
                 + "(user_id, test_id, isDone, course_id) \n"
-                + "VALUES (:uId, :tId, '1', :cId);");
+                + "VALUES (:uId, :tId, '0', :cId);");
 
         q.setParameter("uId", userId);
         q.setParameter("tId", testId);
