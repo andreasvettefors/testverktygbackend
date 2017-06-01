@@ -5,6 +5,8 @@
  */
 package com.grupptre.testverktygbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -39,13 +41,16 @@ public class Course implements Serializable {
     @JoinTable(name = "user_has_course", joinColumns = {
         @JoinColumn(name = "course_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "user_id", referencedColumnName = "id")})
-    @ManyToMany(cascade = CascadeType.ALL) 
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY) 
     private List<User> userList;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "courseId",fetch = FetchType.LAZY)
     private List<UserHasTest> userHasTestList;
+    
+    
 
     public Course() {
+ 
     }
 
     public Course(Integer id) {
@@ -67,8 +72,8 @@ public class Course implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-    @XmlTransient
+    
+ @XmlTransient
     public List<User> getUserList() {
         return userList;
     }

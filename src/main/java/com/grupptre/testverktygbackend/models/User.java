@@ -6,11 +6,17 @@
 package com.grupptre.testverktygbackend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -40,11 +46,11 @@ public class User implements Serializable {
     @Column(name = "authorization")
     private Integer authorization;
     
-    @ManyToMany(mappedBy = "userList",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "userList")
     private List<Course> courseList;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-    @JsonBackReference
+    @JsonBackReference  
     private List<UserHasTest> userHasTestList;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")

@@ -7,6 +7,8 @@ package com.grupptre.testverktygbackend.services;
 
 import com.grupptre.testverktygbackend.models.Course;
 import com.grupptre.testverktygbackend.models.Test;
+import com.grupptre.testverktygbackend.models.User;
+import com.grupptre.testverktygbackend.models.UserHasTest;
 import com.grupptre.testverktygbackend.repository.CourseRepository;
 import java.util.List;
 
@@ -25,4 +27,12 @@ public class CourseService {
     public List<Test> getTestsFromCourse(int id) {
         return cr.getTestsFromCourse(id);
     }
+    
+     public void addTestToCourseAndUser(int courseId,int testId,int userId){
+        cr.addTestToCourseAndUser(courseId,testId,userId);
+    }
+     
+     public List<User> getStudentsInCourse(int courseId){
+         return cr.getStudentsInCourse(courseId);
+     }
 }

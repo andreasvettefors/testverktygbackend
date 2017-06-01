@@ -9,6 +9,7 @@ import com.grupptre.testverktygbackend.models.Answer;
 import com.grupptre.testverktygbackend.models.Question;
 import com.grupptre.testverktygbackend.models.Testresult;
 import com.grupptre.testverktygbackend.models.Test;
+import com.grupptre.testverktygbackend.models.UserHasTest;
 import com.grupptre.testverktygbackend.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.SQLQuery;
@@ -74,7 +75,5 @@ public class TestRepository {
         session.getTransaction().commit();
 
         return result;
-
     }
-
 }

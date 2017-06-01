@@ -41,7 +41,7 @@ public class TestResource {
     }
 
     @POST
-    @Path("/{testId}/questions/{questionId}")
+    @Path("/{testId}/questions/{questionId}/answers")
     public Answer addAnswer(@PathParam("questionId") int questionId, Answer answer) {
         return ts.addAnswer(questionId, answer);
     }

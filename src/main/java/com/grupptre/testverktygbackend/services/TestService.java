@@ -9,6 +9,7 @@ import com.grupptre.testverktygbackend.models.Answer;
 import com.grupptre.testverktygbackend.models.Question;
 import com.grupptre.testverktygbackend.models.Test;
 import com.grupptre.testverktygbackend.models.Testresult;
+import com.grupptre.testverktygbackend.models.UserHasTest;
 import com.grupptre.testverktygbackend.repository.TestRepository;
 import java.util.List;
 
@@ -39,5 +40,7 @@ public class TestService {
     public List<Testresult> getResultFromTest(int userId, int testId) {
         return tr.getResultFromTest(userId, testId);
     }
+    
+   
 
 }
