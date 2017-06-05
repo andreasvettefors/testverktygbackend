@@ -34,6 +34,7 @@ public class TestRepository {
         return testToReturn;
     }
     
+    
     public Question addQuestion(int testId,Question question){
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
@@ -42,6 +43,23 @@ public class TestRepository {
         session.save(question);
         session.getTransaction().commit();
         return question;
+    }
+    
+    public List<UserHasTest> getAllUserTests() {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        List<UserHasTest> list = session.createCriteria(UserHasTest.class).list();
+        session.getTransaction().commit();
+        session.close();
+        return list;
+    }
+    
+    public void updateTestStatus(UserHasTest uht){
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        session.update(uht);
+        session.getTransaction().commit();
+        session.close();
     }
     
     public Answer addAnswer(int questionId,Answer answer){

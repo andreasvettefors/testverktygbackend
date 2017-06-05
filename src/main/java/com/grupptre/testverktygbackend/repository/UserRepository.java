@@ -43,6 +43,7 @@ public class UserRepository {
         Query query = session.createQuery("from UserHasTest where user_id = :id");
         query.setInteger("id", userId);
         List<UserHasTest> tests = query.list();
+        System.out.println("ss");
         return tests;
     }
 

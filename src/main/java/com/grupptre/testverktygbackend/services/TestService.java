@@ -11,6 +11,7 @@ import com.grupptre.testverktygbackend.models.Test;
 import com.grupptre.testverktygbackend.models.Testresult;
 import com.grupptre.testverktygbackend.models.UserHasTest;
 import com.grupptre.testverktygbackend.repository.TestRepository;
+import com.grupptre.testverktygbackend.repository.UserRepository;
 import java.util.List;
 
 /**
@@ -40,7 +41,17 @@ public class TestService {
     public List<Testresult> getResultFromTest(int userId, int testId) {
         return tr.getResultFromTest(userId, testId);
     }
-    
-   
+
+    public void updateTestStatus(UserHasTest uht) {
+        List<UserHasTest> list = tr.getAllUserTests();
+        for (UserHasTest u : list) {
+            if (u.getId() == uht.getId()) {
+                u.setIsDone(uht.getIsDone());
+                u.setGrade(uht.getGrade());
+                tr.updateTestStatus(u);
+            }
+        }
+
+    }
 
 }

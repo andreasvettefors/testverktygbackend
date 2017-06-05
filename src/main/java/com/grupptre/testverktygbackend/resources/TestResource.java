@@ -8,10 +8,12 @@ package com.grupptre.testverktygbackend.resources;
 import com.grupptre.testverktygbackend.models.Answer;
 import com.grupptre.testverktygbackend.models.Question;
 import com.grupptre.testverktygbackend.models.Test;
+import com.grupptre.testverktygbackend.models.UserHasTest;
 import com.grupptre.testverktygbackend.services.TestService;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -52,5 +54,13 @@ public class TestResource {
 
         return ts.getTest(id);
     }
+    
+    @PUT
+    @Path("/{testId}")
+    public void updateTestStatus(@PathParam("testId") int id, UserHasTest uht) {
+        uht.setId(id);
+        ts.updateTestStatus(uht);
+    }
+    
 
 }
