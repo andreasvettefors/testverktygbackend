@@ -51,11 +51,11 @@ public class CourseRepository {
     public List<User> getStudentsInCourse(int courseId) {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
-        SQLQuery q = session.createSQLQuery("SELECT * FROM user\n"
-                + "JOIN user_has_course ON user_id\n"
-                + "WHERE user.authorization = '0' \n"
-                + "AND user_has_course.course_id = :cId\n"
-                + "GROUP BY user.id;");
+        SQLQuery q = session.createSQLQuery("SELECT * FROM user \n"
+                + "JOIN user_has_course on user_has_course.user_id = user.id \n"
+                + "where user_has_course.course_id = :cId \n"
+                + "AND user.authorization = 0\n" 
+                + "group by user.id;"); 
         q.addEntity(User.class);
         q.setParameter("cId", courseId);
         List<User> userList = q.list();
